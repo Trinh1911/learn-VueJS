@@ -10,8 +10,8 @@
 <body>
     <div id="app">vue js {{title}}
         <div>{{say('trinh')}}</div>
-        <!-- bị lỗi cú pháp. không được sử dụng cú pháp như vậy vào trong thuộc tính html -->
-        <a href={{url}}>click</a>
+        <!-- sửa lỗi cú pháp -->
+        <a v-bind:href="url">click</a>
     </div>
 </body>
 <script src="main.js"></script>
