@@ -24,6 +24,12 @@ var vueInstance = new Vue({
         handleMouseMove(e) {
             this.clientX = e.clientX
             this.clientY = e.clientY
+        },
+        handleSubmitForm(e) {
+            console.log(e)
+        },
+        handleMouseMoveChild(e) {
+            console.log('handleMouseMoveChild', e.target);
         }
     }
 })
