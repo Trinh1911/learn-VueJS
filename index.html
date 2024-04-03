@@ -32,6 +32,11 @@
             <input type="email" name="email"> <br/>
             <input type="submit" value="Dang nhap">
         </form>
+        <!-- Ràng buộc dữ liệu 2 chiều theo tư duy cơ bản -->
+        <h1>FirstName={{firstName}}</h1>
+        <input v-on:keyup="handleKeyUp" type="text" placeholder="Nhap firstName">
+        <!-- sử dụng v-model của vuejs để ràng buộc dữ liệu -->
+        <input  v-model="firstName" type="text" placeholder="Nhap firstName">
     </div>
 </body>
 <script src="main.js"></script>

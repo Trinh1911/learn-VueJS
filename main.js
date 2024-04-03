@@ -8,6 +8,7 @@ var vueInstance = new Vue({
         counter: 0,
         clientX: 0,
         clientY: 0,
+        firstName: ''
     },
     // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
     computed: {
@@ -36,6 +37,9 @@ var vueInstance = new Vue({
         },
         handleMouseMoveChild(e) {
             console.log('handleMouseMoveChild', e.target);
+        },
+        handleKeyUp(e) {
+            this.firstName = e.target.value;
         }
     }
 })
