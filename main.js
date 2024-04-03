@@ -9,6 +9,12 @@ var vueInstance = new Vue({
         clientX: 0,
         clientY: 0,
     },
+    // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
+    computed: {
+        reversedMessage: function () {
+            return this.message.split('').reverse().join('')
+        }
+    },
     // them ham
     methods: {
         say: function (text) {
@@ -17,7 +23,7 @@ var vueInstance = new Vue({
         reverseMessage: function () {
             this.message = this.message.split('').reverse().join('')
         },
-        handleClick(number,e) {
+        handleClick(number, e) {
             console.log('click', e.target);
             this.counter += number
         },
