@@ -8,12 +8,21 @@ var vueInstance = new Vue({
         counter: 0,
         clientX: 0,
         clientY: 0,
-        firstName: ''
+        firstName: '',
+        textClass: 'active',
+        isActive: true,
+        isError: true
     },
     // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
     computed: {
         reversedMessage: function () {
             return this.message.split('').reverse().join('')
+        },
+        objClass: function () {
+            return {
+                active: this.isActive,
+                error: this.isError,
+            }
         }
     },
     // them ham
@@ -40,6 +49,9 @@ var vueInstance = new Vue({
         },
         handleKeyUp(e) {
             this.firstName = e.target.value;
+        },
+        changeActive() {
+            this.isActive = !this.isActive;
         }
     }
 })

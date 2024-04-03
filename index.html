@@ -37,6 +37,12 @@
         <input v-on:keyup="handleKeyUp" type="text" placeholder="Nhap firstName">
         <!-- sử dụng v-model của vuejs để ràng buộc dữ liệu -->
         <input  v-model="firstName" type="text" placeholder="Nhap firstName">
+        <!-- ràng buộc class bằng vuejs -->
+        <!-- đây là ràng buộc class theo kiểu thông thường -->
+        <div class="demo" v-bind:class="{active: isActive, error: false}"></div>
+        <!-- nhưng khi áp dụng computed vào thì  -->
+        <div class="demo" v-bind:class="objClass"></div>
+        <button v-on:click="changeActive">click change color</button>
     </div>
 </body>
 <script src="main.js"></script>
@@ -55,6 +61,16 @@
         position: absolute;
         top: 0;
         right: 0;
+    }
+    .demo {
+        width: 200px;
+        height: 200px;
+    }
+    .demo.active {
+        background-color: aqua;
+    }
+    .demo.error {
+        background-color: red;
     }
 </style>
 
