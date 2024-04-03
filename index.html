@@ -8,9 +8,11 @@
 
 </head>
 <body>
-    <h1 id="app">vue js {{title}}
+    <div id="app">vue js {{title}}
         <div>{{say('trinh')}}</div>
-    </h1>
+        <!-- bị lỗi cú pháp. không được sử dụng cú pháp như vậy vào trong thuộc tính html -->
+        <a href={{url}}>click</a>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>

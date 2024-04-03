@@ -2,7 +2,8 @@ var vueInstance = new Vue({
     el: '#app',
     data: {
         title: 'dien thoai',
-        main: 'test'
+        main: 'test',
+        url: "https://v2.vuejs.org/v2/guide/"
     },
     // them ham
     methods: {
