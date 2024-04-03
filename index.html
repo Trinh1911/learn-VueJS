@@ -15,8 +15,20 @@
         <!-- sửa lỗi cú pháp -->
         <a v-bind:href="url">click</a>
         <button v-on:click="reverseMessage">{{message }}</button>
+        <h3>Counter {{counter}}</h3>
+        <button v-on:click="handleClick(5, $event)">click me</button>
+        <div class="box" v-on:mousemove="handleMouseMove">
+            <p>Client X: {{clientX}}</p>
+            <p>Client Y: {{clientY}}</p>
+        </div>
     </div>
 </body>
 <script src="main.js"></script>
-
+<style>
+    .box {
+        height: 100px;
+        width: 100px;
+        background-color: aquamarine;
+    }
+</style>
 </html>
