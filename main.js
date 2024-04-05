@@ -22,7 +22,13 @@ var vueInstance = new Vue({
         scores: {
             math: 9,
             english: 7.5,
-        }
+        },
+        arrayUser: [
+            { email: 'nguyenkimtrinhntn@gmail.com', isActive: false },
+            { email: 'soranguyen@gmail.com', isActive: true},
+            { email: 'sora205112@gmail.com', isActive: true},
+            { email: 'sora2051125@gmail.com', isActive: true},
+          ],
     },
     // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
     computed: {
@@ -34,6 +40,12 @@ var vueInstance = new Vue({
                 active: this.isActive,
                 error: this.isError,
             }
+        },
+        userActive() {
+            var user = this.arrayUser.filter(function(u) {
+                return u.isActive
+            }) 
+            return user
         }
     },
     // them ham

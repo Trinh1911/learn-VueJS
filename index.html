@@ -79,6 +79,13 @@
         <ul>
             <li v-for="(value, key) in scores">{{ key }}: {{ value }}</li>
         </ul>
+        <!-- Lưu ý khi dùng vòng lặp -->
+        <!-- Ví dụ render các địa chỉ email -->
+        <!-- Theo cách viết thông thường, nhưng trường hợp này vuejs không khuyến khích
+            nên chúng ta sẽ làm theo cách sau -->
+        <ul v-for="user in arrayUser" v-if="user.isActive">
+            <li>{{user.email}}</li>
+        </ul>
     </div>
 </body>
 <script src="main.js"></script>
