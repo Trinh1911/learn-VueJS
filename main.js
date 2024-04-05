@@ -11,7 +11,10 @@ var vueInstance = new Vue({
         firstName: '',
         textClass: 'active',
         isActive: true,
-        isError: true
+        isError: true,
+        activeColor: "red",
+        fontSize: "20px",
+        tabSelected: "blue"
     },
     // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
     computed: {
@@ -52,6 +55,9 @@ var vueInstance = new Vue({
         },
         changeActive() {
             this.isActive = !this.isActive;
+        },
+        changeText(tab) {
+            this.tabSelected = tab
         }
     }
 })
