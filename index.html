@@ -1,110 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="app">
-      vue js {{title}}
-      <div>{{say('trinh')}}</div>
-      <!-- sửa lỗi cú pháp -->
-      <a v-bind:href="url">click</a>
-      <button v-on:click="reverseMessage">{{message}}</button>
-      <h2>{{message}}</h2>
-      <h2>{{reversedMessage}}</h2>
-      <h3>Counter {{counter}}</h3>
-      <button v-on:click="handleClick(5, $event)">click me</button>
-      <div class="box" v-on:mousemove="handleMouseMove">
-        <p>Client X: {{clientX}}</p>
-        <p>Client Y: {{clientY}}</p>
-        <div class="box-2" v-on:mousemove.stop="handleMouseMoveChild"></div>
-      </div>
-      <!-- ngan chan chuyen trang mac dinh -->
-      <form action="./server.php" v-on:submit.prevent="handleSubmitForm">
-        <label>Nhap firstName</label>
-        <input type="text" name="firstName" /><br />
-        <label>Nhap email</label>
-        <input type="email" name="email" /> <br />
-        <input type="submit" value="Dang nhap" />
-      </form>
-      <!-- Ràng buộc dữ liệu 2 chiều theo tư duy cơ bản -->
-      <h1>FirstName={{firstName}}</h1>
-      <input
-        v-on:keyup="handleKeyUp"
-        type="text"
-        placeholder="Nhap firstName"
-      />
-      <!-- sử dụng v-model của vuejs để ràng buộc dữ liệu -->
-      <input v-model="firstName" type="text" placeholder="Nhap firstName" />
-      <!-- ràng buộc class bằng vuejs -->
-      <!-- đây là ràng buộc class theo kiểu thông thường -->
-      <div class="demo" v-bind:class="{active: isActive, error: false}"></div>
-      <!-- nhưng khi áp dụng computed vào thì  -->
-      <div class="demo" v-bind:class="objClass"></div>
-      <button v-on:click="changeActive">click change color</button>
-      <!-- ràng buộc style cho phần tử -->
-      <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
-        Ràng buộc style
-      </div>
-      <!-- render template theo biểu thức điều kiện nếu click vào button:
+        vue js {{title}}
+        <div>{{say('trinh')}}</div>
+        <!-- sửa lỗi cú pháp -->
+        <a v-bind:href="url">click</a>
+        <button v-on:click="reverseMessage">{{message}}</button>
+        <h2>{{message}}</h2>
+        <h2>{{reversedMessage}}</h2>
+        <h3>Counter {{counter}}</h3>
+        <button v-on:click="handleClick(5, $event)">click me</button>
+        <div class="box" v-on:mousemove="handleMouseMove">
+            <p>Client X: {{clientX}}</p>
+            <p>Client Y: {{clientY}}</p>
+            <div class="box-2" v-on:mousemove.stop="handleMouseMoveChild"></div>
+        </div>
+        <!-- ngan chan chuyen trang mac dinh -->
+        <form action="./server.php" v-on:submit.prevent="handleSubmitForm">
+            <label>Nhap firstName</label>
+            <input type="text" name="firstName" /><br />
+            <label>Nhap email</label>
+            <input type="email" name="email" /> <br />
+            <input type="submit" value="Dang nhap" />
+        </form>
+        <!-- Ràng buộc dữ liệu 2 chiều theo tư duy cơ bản -->
+        <h1>FirstName={{firstName}}</h1>
+        <input v-on:keyup="handleKeyUp" type="text" placeholder="Nhap firstName" />
+        <!-- sử dụng v-model của vuejs để ràng buộc dữ liệu -->
+        <input v-model="firstName" type="text" placeholder="Nhap firstName" />
+        <!-- ràng buộc class bằng vuejs -->
+        <!-- đây là ràng buộc class theo kiểu thông thường -->
+        <div class="demo" v-bind:class="{active: isActive, error: false}"></div>
+        <!-- nhưng khi áp dụng computed vào thì  -->
+        <div class="demo" v-bind:class="objClass"></div>
+        <button v-on:click="changeActive">click change color</button>
+        <!-- ràng buộc style cho phần tử -->
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+            Ràng buộc style
+        </div>
+        <!-- render template theo biểu thức điều kiện nếu click vào button:
             1. button đỏ thì sẽ render ra text đỏ
             2. button xanh thì sẽ render ra text xanh
      -->
-     <!-- Trường hợp 1: sử dụng if-else -->
-     <div style="display: flex; flex-direction: column;">
-         <button style="color: red; padding: 5px; margin: 10px;" v-on:click="changeText('red')">click render color red</button>
-         <div class="red" v-if="tabSelected === 'red'">red</div>
-         <button style="color: blue; padding: 5px; margin: 10px;" v-on:click="changeText('blue')">click render color blue</button>
-         <div class="blue" v-if="tabSelected === 'blue'">blue</div>
-     </div>
-     <!-- Trường hợp 2: sử dụng v-show -->
-     <div style="display: flex; flex-direction: column;">
-        <button style="color: red; padding: 5px; margin: 10px;"  v-show="tabSelected === 'red'">click render color red</button>
-        <div class="red" >red</div>
-        <button style="color: blue; padding: 5px; margin: 10px;" v-show="tabSelected === 'blue'">click render color blue</button>
-        <div class="blue" >blue</div>
+        <!-- Trường hợp 1: sử dụng if-else -->
+        <div style="display: flex; flex-direction: column;">
+            <button style="color: red; padding: 5px; margin: 10px;" v-on:click="changeText('red')">click render color
+                red</button>
+            <div class="red" v-if="tabSelected === 'red'">red</div>
+            <button style="color: blue; padding: 5px; margin: 10px;" v-on:click="changeText('blue')">click render color
+                blue</button>
+            <div class="blue" v-if="tabSelected === 'blue'">blue</div>
+        </div>
+        <!-- Trường hợp 2: sử dụng v-show -->
+        <div style="display: flex; flex-direction: column;">
+            <button style="color: red; padding: 5px; margin: 10px;" v-show="tabSelected === 'red'">click render color
+                red</button>
+            <div class="red">red</div>
+            <button style="color: blue; padding: 5px; margin: 10px;" v-show="tabSelected === 'blue'">click render color
+                blue</button>
+            <div class="blue">blue</div>
+        </div>
+        <ul>
+            <li v-for="item in items" :key="item.message">
+                {{ item.message }}
+            </li>
+        </ul>
+        <!-- Sử dụng vòng lặp để render điểm các môn -->
+        <!-- chú ý value trước, key sau -->
+        <ul>
+            <li v-for="(value, key) in scores">{{ key }}: {{ value }}</li>
+        </ul>
     </div>
-    </div>
-  </body>
-  <script src="main.js"></script>
-  <style>
+</body>
+<script src="main.js"></script>
+<style>
     .box {
-      width: 200px;
-      height: 200px;
-      background-color: aquamarine;
-      position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        position: relative;
     }
 
     .box-2 {
-      width: 50px;
-      height: 50px;
-      background-color: red;
-      position: absolute;
-      top: 0;
-      right: 0;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .demo {
-      width: 200px;
-      height: 200px;
+        width: 200px;
+        height: 200px;
     }
 
     .demo.active {
-      background-color: aqua;
+        background-color: aqua;
     }
 
     .demo.error {
-      background-color: red;
+        background-color: red;
     }
+
     .red {
         color: red;
     }
+
     .blue {
         color: blue;
     }
-  </style>
+</style>
+
 </html>

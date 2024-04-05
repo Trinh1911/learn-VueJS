@@ -14,7 +14,15 @@ var vueInstance = new Vue({
         isError: true,
         activeColor: "red",
         fontSize: "20px",
-        tabSelected: "blue"
+        tabSelected: "blue",
+        items: [
+            { message: 'Foo' },
+            { message: 'Bar' }
+          ],
+        scores: {
+            math: 9,
+            english: 7.5,
+        }
     },
     // để hạn chế số lượng method run lại không mong muốn thì ta sẽ sử dụng computed thay vì method
     computed: {
